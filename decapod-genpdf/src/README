@@ -1,0 +1,43 @@
+Running this script will invoke ocropus, clustering, and pdf output
+
+################INSTALL###########################################
+
+In order to install package type:
+sudo scons install
+sudo python setup.py install
+
+################USING#############################################
+
+In order to run the complete program on a multipage tiff type:
+runPipeLine.py 
+
+the required options you will need to provide are:
+
+-b [name of multipage tiff file] 
+-d [name of directory that will store ocropus intermediate file]
+WARNING at the end of the directory there must be a '\' or the program will not function.
+-p [name of the output pdf file]
+
+
+
+There are also many other options; you can access them by typing runPipeline.py [--help or -h]
+
+
+"   -b  --book	 name of multipage tiff file\n"\
+"   -d, --dir          Ocropus Directory to be converted\n"\
+"   -p, --pdf          PDF File that will be generated\n"\
+" Options:\n"\
+"   -h, --help:        print this help\n"\
+"   -v, --verbose:     verbose level [0,1,2,3]\n"\
+"   -t, --type:        type of the PDF to be generates:\n"\
+"                          1: image only [default]\n"\
+"                          2: recognized text overlaid with image\n"\
+"                          3: tokenized\n"\
+"   -W, --width:       width of the PDF page [in cm] [default = 21.0]:\n"\
+"   -H, --height:      height of the PDF page [in cm] [default = 29.7]:\n"\
+"   -r, --resolution:  resolution of the images in the PDF [default = 200dpi]\n"\
+"   -R --remerge 	         remerge token clusters [default = false] \n"\
+"   -S, --seg2bbox         suppresses generating files necessary to generate PDF \n"\
+"   -C, --enforceCSEG      characters can only match if there CSEG labels are equal \n"\
+"   -e, --eps          matching threshold [default=7] \n"\
+"   -s, --reps             matching threshold [default=.07] \n"\

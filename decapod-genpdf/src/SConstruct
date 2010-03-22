@@ -1,0 +1,68 @@
+# -*- python -*-
+# vi: ft=python
+
+# Copyright 2008 Deutsches Forschungszentrum fuer Kuenstliche Intelligenz 
+# or its licensors, as applicable.
+# 
+# You may not use this file except under the terms of the accompanying license.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License"); you
+# may not use this file except in compliance with the License. You may
+# obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# 
+# Project: OCRopus - the open source document analysis and OCR system
+# File: SConstruct
+# Purpose: building OCRopus
+# Responsible: TMB
+# modifications: mpc
+# Reviewer: 
+# Primary Repository: http://ocropus.googlecode.com/svn/trunk/
+# Web Sites: www.iupr.org, www.dfki.de
+
+# IMPORTANT
+# 
+# The official build system for OCRopus is autoconf.
+# However, OCRopus should build with this build file on Ubuntu.
+# If OCRopus doesn't build with this build file on Ubuntu,
+# chances are that some file or file name violates the coding
+# conventions or that there are new, unexpected external library
+# dependencies.
+#
+# Please do not make significant modifications to this file
+# without talking to tmb first.
+
+
+from SCons.Script import *
+opts = Variables('custom.py')
+opts.Add('warn', 'Compiler flags for warnings',
+         "-Wall -Wno-sign-compare -Wno-write-strings -Wno-unknown-pragmas "+
+         " -D__warn_unused_result__=__far__"+
+         " -D_BACKWARD_BACKWARD_WARNING_H=1")
+### path options
+opts.Add(PathVariable('prefix', 'The installation root for OCRopus ', "/usr/local"))
+
+env = Environment(options=opts)
+env.Append(LIBS = ['ocropus', 'iulib', 'lept', 'png', 'jpeg', 'gif' ,'tiff','SDL','SDL_gfx','gsl','blas' ])
+env.Append(LINKFLAGS=["-fopenmp"])
+env.Append(CXXFLAGS=["-fopenmp"])
+#SQLite
+env.Append(CPPDEFINES=['HAVE_SQLITE'])
+env.Append(LIBS=["sqlite3"])
+
+#t = env.Program(target='binned', source=['binnednn.cc','pattern.cc','ccluster.cc'])
+#t = env.Program(target='binnedIMODEL', source=['struct_binned.cc','pattern.cc'])
+binnedInter = env.Program(target='binned-inter', source=['binnednn.cc','token.cc','ccluster-inter.cc'])
+
+
+
+################################################################
+### install
+################################################################
+env.Install(dir = "/usr/local/bin", source = binnedInter)
+env.Alias('install', "/usr/local/bin")
