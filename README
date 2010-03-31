@@ -1,6 +1,0 @@
-The default repository is just a placeholder.  You can check out the parts
-of the PDF repository from here:
-
-hg clone https://server.decapod.googlecode.com/hg/ decapod-server
-hg clone https://genpdf.decapod.googlecode.com/hg/ decapod-genpdf
-hg clone https://stitching.decapod.googlecode.com/hg/ decapod-stitching 
