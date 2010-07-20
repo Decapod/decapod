@@ -12,3 +12,6 @@ fi
 ./decapod-gphoto.sh $OPERATION
 ./decapod-ocropus.sh $OPERATION
 ./decapod-decapod.sh $OPERATION
+
+cd ..
+rm -rf build
