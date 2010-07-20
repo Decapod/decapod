@@ -6,14 +6,14 @@
 # You may obtain a copy of the ECL 2.0 License and BSD License at
 # https://source.fluidproject.org/svn/LICENSE.txt
 
-### Install Decapod 0.3
+### Install Decapod 0.4
 
 . ./_shared-utils.sh
 
 DECAPOD_MODULES="libtiff-tools imagemagick"
 GENPDF_PKG_NAME="decapod-genpdf"
 STITCHING_PKG_NAME="decapod-stitching"
-DECAPOD_VERSION="0.0-TRUNK"
+DECAPOD_VERSION="decapod-0.4"
 
 if [ "$1" = "remove" ]; then
 	OPERATION=$1
@@ -29,6 +29,7 @@ cd ../..
 
 # Install Decapod PDF Generation Script
 cd decapod-genpdf/src/
+hg update $DECAPOD_VERSION
 # TODO: Need to optionally switch to a specific tag
 if [ "$1" = "remove" ]; then
 	uninstall_dpkg $GENPDF_PKG_NAME
@@ -39,6 +40,7 @@ cd ../..
 
 # Install Decapod Stitching script
 cd decapod-stitching/
+hg update $DECAPOD_VERSION
 # TODO: Need to optionally switch to a specific tag (eg. "hg update decapod-0.3")
 if [ "$1" = "remove" ]; then
 	uninstall_dpkg $STITCHING_PKG_NAME
