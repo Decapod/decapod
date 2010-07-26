@@ -13,10 +13,10 @@ Highlights of the 0.4 Release
 
 Decapod 0.4 adds the following features and enhancements:
 
-1. A new camera calibration wizard, enabling automatic adjustment of image rotation and page order
-2. Better feedback for long-running tasks such as export and image capture
+1. A new camera calibration wizard, enabling automatic adjustment of image rotation and page order.
+2. Better feedback for long-running tasks such as export and image capture.
 3. Improved installation process--Decapod now includes scripts to make it easier to install and setup.  Look for more install improvements in future releases.
-4. Simplified the Decapod server code, providing architectural and performance improvements
+4. Simplified the Decapod server code, providing architectural and performance improvements.
 
 
 Installing Decapod 0.4
@@ -32,9 +32,9 @@ Supported Platforms
 
 Decapod 0.4 is tested and supported in the following configurations:
  
-  * Operating System: Ubuntu 10.0.4
+  * Operating System: Ubuntu 10.04
   * Web Browser: Firefox 3.6
-  * Cameras: Canon G10
+  * Cameras: Canon PowerShot G10
   
 Other configurations may work, but haven't been tested. The Decapod community welcomes 
 contributions, including testing various combinations of operating systems, browsers, and cameras.
@@ -73,7 +73,11 @@ Exporting:
 What Kind of Material Can I Capture with Decapod 0.4?
 =====================================================
 
-<Jonathan, can you fill this in?>
+For this release, it is strongly recommended that Decapod be used with books employing a "Manhattan" style layout.
+These layouts should be in rectangular columns, with content fitting and staying within those column boundaries.
+
+Books that are not this style may produce PDFs with unexpected anomalies. Future releases of OCRopus (which Decapod
+uses for page analysis and OCR operations) may support more complex layouts.
 
 
 License
