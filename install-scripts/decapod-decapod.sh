@@ -30,7 +30,7 @@ cd ../..
 # Install Decapod PDF Generation Script
 cd decapod-genpdf/src/
 hg update $DECAPOD_VERSION
-# TODO: Need to optionally switch to a specific tag
+
 if [ "$1" = "remove" ]; then
 	uninstall_dpkg $GENPDF_PKG_NAME
 else
@@ -41,7 +41,7 @@ cd ../..
 # Install Decapod Stitching script
 cd decapod-stitching/
 hg update $DECAPOD_VERSION
-# TODO: Need to optionally switch to a specific tag (eg. "hg update decapod-0.3")
+
 if [ "$1" = "remove" ]; then
 	uninstall_dpkg $STITCHING_PKG_NAME
 else
