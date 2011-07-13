@@ -9,6 +9,7 @@
 . ./_shared-utils.sh
 
 OCROPUS_TAG="ocropus-0.4.4"
+OCROPUS_VERSION=$(echo $OCROPUS_TAG | sed -e 's/.*-//')
 if [ "$1" = "remove" ]; then
 	OPERATION=$1
 else
@@ -25,7 +26,7 @@ clone_and_install_ocropus_lib() {
 		hg clone -r $OCROPUS_TAG $1 $2
 		cd $2
 		sh ubuntu-packages # TODO: This OCRopus-specific script requires user intervention. Replace it or fix it.
-		checkinstall -D -y --nodoc --pkgname $2 --pkgversion $OCROPUS_TAG scons -j 4 sdl=1 install
+		checkinstall -D -y --nodoc --pkgname $2 --pkgversion $OCROPUS_VERSION scons -j 4 sdl=1 install
 		cd ..
 	fi
 }
@@ -37,7 +38,7 @@ clone_and_install_python_lib() {
 	else
 		hg clone -r $OCROPUS_TAG $1 $2
 		cd $2
-		checkinstall -D -y --nodoc --pkgname $2 --pkgversion $OCROPUS_TAG python setup.py install
+		checkinstall -D -y --nodoc --pkgname $2 --pkgversion $OCROPUS_VERSION python setup.py install
 		cd ..
 	fi
 }
@@ -49,14 +50,14 @@ clone_and_make_ocropus_lib() {
 	else
 		hg clone -r $OCROPUS_TAG $1 $2
 		cd $2
-		checkinstall -D -y --nodoc --pkgname $2 --pkgversion $OCROPUS_TAG make
+		checkinstall -D -y --nodoc --pkgname $2 --pkgversion $OCROPUS_VERSION make
 		cd ..
 	fi
 }
 
 clone_and_install_ocropus_lib https://iulib.googlecode.com/hg/ iulib
 clone_and_install_ocropus_lib https://ocropus.googlecode.com/hg/ ocropus
-download_and_install http://mohri-lt.cs.nyu.edu/twiki/pub/FST/FstDownload/openfst-1.1.tar.gz openfst-1.1.tar.gz openfst-1.1 openfst 1.1
+download_and_install http://openfst.cs.nyu.edu/twiki/pub/FST/FstDownload/openfst-1.1.tar.gz openfst-1.1.tar.gz openfst-1.1 openfst 1.1
 clone_and_make_ocropus_lib https://pyopenfst.googlecode.com/hg/ pyopenfst
 clone_and_make_ocropus_lib https://ocroswig.ocropus.googlecode.com/hg/ ocroswig
 clone_and_install_python_lib https://ocropy.ocropus.googlecode.com/hg/ ocropy
