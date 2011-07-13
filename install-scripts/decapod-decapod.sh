@@ -13,7 +13,8 @@
 DECAPOD_MODULES="libtiff-tools imagemagick"
 GENPDF_PKG_NAME="decapod-genpdf"
 STITCHING_PKG_NAME="decapod-stitching"
-DECAPOD_VERSION="decapod-0.4"
+DECAPOD_NAME="decapod-0.4"
+DECAPOD_VERSION=$(echo $DECAPOD_NAME | sed -e 's/.*-//')
 
 if [ "$1" = "remove" ]; then
 	OPERATION=$1
@@ -29,7 +30,7 @@ cd ../..
 
 # Install Decapod PDF Generation Script
 cd decapod-genpdf/src/
-hg update $DECAPOD_VERSION
+hg update $DECAPOD_NAME
 
 if [ "$1" = "remove" ]; then
 	uninstall_dpkg $GENPDF_PKG_NAME
@@ -40,7 +41,7 @@ cd ../..
 
 # Install Decapod Stitching script
 cd decapod-stitching/
-hg update $DECAPOD_VERSION
+hg update $DECAPOD_NAME
 
 if [ "$1" = "remove" ]; then
 	uninstall_dpkg $STITCHING_PKG_NAME
