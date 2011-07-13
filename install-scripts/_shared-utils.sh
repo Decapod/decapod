@@ -21,12 +21,16 @@ uninstall_dpkg() {
 }
 
 install_source() {		
-		wget $1
+		wget $1 -O $2
 		tar -zxvf $2
 		cd $3
-		./configure
+		if [ $4 = "gphoto2" ]; then
+      ./configure --with-libgphoto2=/usr/local
+    else
+      ./configure
+    fi
 		make
-		checkinstall -D -y --nodoc --pkgname $4 --pkgversion $5
+		checkinstall --fstrans=no -D -y --nodoc --pkgname $4 --pkgversion $5
 		ldconfig
 		cd ..
 }
