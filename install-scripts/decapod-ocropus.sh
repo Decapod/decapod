@@ -55,9 +55,9 @@ clone_and_make_ocropus_lib() {
 	fi
 }
 
-clone_and_install_ocropus_lib https://iulib.googlecode.com/hg/ iulib
-clone_and_install_ocropus_lib https://ocropus.googlecode.com/hg/ ocropus
-download_and_install https://launchpad.net/debian/+archive/primary/+files/openfst_1.1.orig.tar.gz  openfst-1.1.tar.gz openfst-1.1 openfst 1.1
-clone_and_make_ocropus_lib https://pyopenfst.googlecode.com/hg/ pyopenfst
-clone_and_make_ocropus_lib https://ocroswig.ocropus.googlecode.com/hg/ ocroswig
-clone_and_install_python_lib https://ocropy.ocropus.googlecode.com/hg/ ocropy
+clone_and_install_ocropus_lib https://code.google.com/p/iulib/ iulib
+clone_and_install_ocropus_lib https://code.google.com/p/ocropus.ocroold/ ocropus
+download_and_install https://launchpad.net/debian/+archive/primary/+files/openfst_1.1.orig.tar.gz openfst-1.1.tar.gz openfst-1.1 openfst 1.1
+clone_and_make_ocropus_lib https://code.google.com/p/pyopenfst/ pyopenfst
+# clone_and_make_ocropus_lib https://ocroswig.ocropus.googlecode.com/hg/ ocroswig
+clone_and_install_python_lib https://code.google.com/p/ocropus.ocropy/ ocropy
