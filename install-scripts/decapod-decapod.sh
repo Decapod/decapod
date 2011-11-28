@@ -6,14 +6,14 @@
 # You may obtain a copy of the ECL 2.0 License and BSD License at
 # https://source.fluidproject.org/svn/LICENSE.txt
 
-### Install Decapod 0.4
+### Install Decapod 0.5a
 
 . ./_shared-utils.sh
 
 DECAPOD_MODULES="libtiff-tools imagemagick"
 GENPDF_PKG_NAME="decapod-genpdf"
 STITCHING_PKG_NAME="decapod-stitching"
-DECAPOD_NAME="decapod-0.4"
+DECAPOD_NAME="decapod-0.5a"
 DECAPOD_VERSION=$(echo $DECAPOD_NAME | sed -e 's/.*-//')
 
 if [ "$1" = "remove" ]; then
