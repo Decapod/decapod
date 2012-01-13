@@ -12,7 +12,6 @@
 
 DECAPOD_MODULES="libtiff-tools imagemagick"
 GENPDF_PKG_NAME="decapod-genpdf"
-STITCHING_PKG_NAME="decapod-stitching"
 DECAPOD_NAME="decapod-0.5a"
 DECAPOD_VERSION=$(echo $DECAPOD_NAME | sed -e 's/.*-//')
 
@@ -38,14 +37,3 @@ else
 	checkinstall -D -y --nodoc --pkgname $GENPDF_PKG_NAME --pkgversion $DECAPOD_VERSION scons -j 4 install; python setup.py install
 fi
 cd ../..
-
-# Install Decapod Stitching script
-cd decapod-stitching/
-hg update $DECAPOD_NAME
-
-if [ "$1" = "remove" ]; then
-	uninstall_dpkg $STITCHING_PKG_NAME
-else
-	checkinstall -D -y --nodoc --pkgname $STITCHING_PKG_NAME --pkgversion $DECAPOD_VERSION python setup.py install
-fi
-cd ..
