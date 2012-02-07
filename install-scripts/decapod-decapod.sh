@@ -11,14 +11,15 @@
 . ./_shared-utils.sh
 
 DECAPOD_MODULES="libtiff-tools imagemagick"
+CHERRYPY_PKG_NAME="cherrypy-3.2.2"
 GENPDF_PKG_NAME="decapod-genpdf"
 DECAPOD_NAME="decapod-0.5a"
 DECAPOD_VERSION=$(echo $DECAPOD_NAME | sed -e 's/.*-//')
 
 if [ "$1" = "remove" ]; then
-	OPERATION=$1
+    OPERATION=$1
 else
-	OPERATION="install"
+    OPERATION="install"
 fi
 
 # Get some Decapod-specific dependencies
@@ -32,8 +33,21 @@ cd decapod-genpdf/src/
 hg update $DECAPOD_NAME
 
 if [ "$1" = "remove" ]; then
-	uninstall_dpkg $GENPDF_PKG_NAME
+    uninstall_dpkg $GENPDF_PKG_NAME
 else
-	checkinstall -D -y --nodoc --pkgname $GENPDF_PKG_NAME --pkgversion $DECAPOD_VERSION scons -j 4 install; python setup.py install
+    checkinstall -D -y --nodoc --pkgname $GENPDF_PKG_NAME --pkgversion $DECAPOD_VERSION scons -j 4 install; python setup.py install
 fi
 cd ../..
+
+#install cherrypy
+if [ "$1" = "remove"]; then
+    uninstall_dpkg $CHERRYPY_PKG_NAME
+else
+    wget http://download.cherrypy.org/CherryPy/3.2.2/CherryPy-3.2.2.tar.gz
+    tar -zxvf CherryPy-3.2.2.tar.gz
+    rm CherryPy-3.2.2.tar.gz
+    cd CherryPy-3.2.2
+    checkinstall -D -y --nodoc --pkgname $CHERRYPY_PKG_NAME --pkgversion $DECAPOD_VERSION python setup.py install
+    cd ..
+    rm -rf CherryPy-3.2.2
+fi
