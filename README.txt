@@ -86,10 +86,34 @@ Third Party Software Used By Decapod
 Decapod is a Web application front-end for a collection image processing and capture tools, 
 aggregated together using command line utilities. Third-party dependencies include:
 
- * libtifftools: http://www.libtiff.org (MIT License)
- * OCRopus: http://code.google.com/p/ocropus/ (Apache 2 License)
- * ImageMagick: http://www.imagemagick.org (ImageMagick License)
- * CherryPy: http://www.cherrypy.org (BSD License)
+ * checkinstall: http://asic-linux.com.mx/~izto/checkinstall/ (GPL License)
+ * cherrypy 3.2.2: http://www.cherrypy.org/ (BSD License)
+ * Fluid Infusion 1.5-SNAPSHOT: http://fluidproject.org/ (BSD License)
+ * fontforge: http://fontforge.sourceforge.net/ (BSD License)
+ * fontforge-extras: http://fontforge.sourceforge.net/ (BSD License)
+ ** autotrace: http://autotrace.sourceforge.net/ (GPL License)
+ ** potrace: http://potrace.sourceforge.net/ (GPL License)
+ * imagemagick: http://www.imagemagick.org/script/index.php (ImageMagick License)
+ * jQuery UI Accordion 1.8.19: http://jqueryui.com/ (MIT License)
+ * mercurial: http://mercurial.selenic.com/ (GPL License)
+ * OCRopus: http://code.google.com/p/ocropus/ (Apache 2.0 License)
+ ** libjpeg62-dev: http://packages.ubuntu.com/lucid/libjpeg62-dev (libjpeg62 License)
+ ** libtiff-tools: http://www.libtiff.org/ (libtiff License)
+ * python-fontforge: http://fontforge.sourceforge.net/ (BSD License)
+ * python-imaging: http://www.pythonware.com/products/pil/ (MIT License)
+ * python-matplotlib: http://matplotlib.sourceforge.net/ (PSF License)
+ * python-nose: http://readthedocs.org/docs/nose/en/latest/ (LGPL License)
+ * python-numpy: http://numpy.scipy.org/ (BSD License)
+ * python-reportlab: http://www.reportlab.com/ (BSD License)
+ * python-scipy: http://www.scipy.org/SciPy (BSD License)
+ * python-scipy-dbg: http://www.scipy.org/SciPy (BSD License)
+ * python-simplejson: http://simplejson.readthedocs.org/en/latest/ (MIT License)
+ * Qunit: http://qunitjs.com/ (MIT License)
+ * scons: http://www.scons.org/ (MIT License)
+
+See: http://wiki.fluidproject.org/display/fluid/Decapod+Dependencies
+
+**Note: GPL licensed code is not used directly, but only interfaced through calls to the shell**
 
 
 Known Issues
