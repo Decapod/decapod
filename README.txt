@@ -1,43 +1,39 @@
-Decapod 0.5
+Decapod 0.6
 ============
 
 Main Project Site:  	http://sites.google.com/site/decapodproject/
-Documentation:      	http://wiki.fluidproject.org/display/fluid/Decapod+0.5+Release
-Source Code:  		http://wiki.fluidproject.org/display/fluid/Decapod+Source+Code
+Documentation:      	http://wiki.fluidproject.org/display/fluid/Decapod+0.6+Release
+Source Code:  		    http://wiki.fluidproject.org/display/fluid/Decapod+Source+Code
 
-Highlights of the 0.5 Release
+Highlights of the 0.6 Release
 ==============================
 
-Decapod 0.5 adds the following features and enhancements:
+Decapod 0.6 adds the following features and enhancements:
 
-1. New UI focused on image importing, and exporting to PDF formats (Image, OCR, and Traced)
-2. Upgraded to a Pre-release version of Fluid Infusion 1.5
-3. Improved server side implementation 
-	a. Re-implemented based on the proposed REST architecture ( http://wiki.fluidproject.org/pages/viewpage.action?pageId=28344822 )
-	b. Added server side file validation
-	c. Specific response codes returned
-	d. Upgraded to Cherrypy 3.2.2
+1. Support for new PDF format: font-matched PDF.
+2. Now export images to TIFF and PNG image formats.
+3. Ability to specify custom dimensions and resolution for PDF formats.
+4. Decapod now supports Ubuntu 12.04.
+5. Improved configurability of the server.
 
-*Note: Decapod 0.5 removes support for camera capture and organizing images. Some of this will be reintroduced in a future release.
-
-Installing Decapod 0.5
+Installing Decapod 0.6
 ======================
 
 For full installation and configuration instructions, visit the Decapod User Guide:
 
-http://wiki.fluidproject.org/display/fluid/Download+and+Install+Decapod+0.5
+http://wiki.fluidproject.org/display/fluid/Download+and+Install+Decapod+0.6
 
 
-Supported Platforms
-===================
+Tested Platform
+===============
 
-Decapod 0.5 is tested and supported in the following configurations:
+Decapod 0.6 is tested and supported in the following configurations:
  
-  * Operating System: Ubuntu 10.04
-  * Web Browser: Firefox 12
+  * Operating System: Ubuntu 12.04
+  * Web Browser: Firefox 15
   
 Other configurations may work, but haven't been tested. The Decapod community welcomes 
-contributions, including testing various combinations of operating systems, browsers, and cameras.
+contributions, including testing various combinations of operating systems and browsers.
 
 
 What's in this Release?
@@ -46,19 +42,24 @@ What's in this Release?
 Interface:
  * A simple import interface for uploading images to Decapod.
  * Status messages indicating how many files are queued and how many have errors are provided.
- * A choice of three PDF export formats to select.
+ * Four PDF, and two image export formats to select from.
 
 Importing images:
-* Image formats supported in this release are: JPEG, TIFF, and PNG.
-* Default maximum image file size is 100MB, but configurable to any custom file size.
+ * Image formats supported in this release are: JPEG, TIFF, and PNG.
+ * Default maximum image file size is 100MB, but configurable to any custom file size.
 
 Exporting:
- * Export the collection of images as a greyscale image PDF.
- * Export the collection of images as a greyscale image PDF with selectable OCR'd text underlaid.
- * Export the collection of images as a traced PDF.
+ * Export the collection of images as a greyscale PDF. Four PDF formats include:
+    1. Image PDF
+    2. A PDF with electable OCR'd text underlaid.
+    3. A PDF with contents traced by computer.
+    4. A PDF with detected Latin text converted to a True-Type font.
+    
+ * Export the collection of images as an archive of PNG or TIFF files.
 
 
-What Kind of Material Can I Capture with Decapod 0.5?
+
+What Kind of Material Can I Capture with Decapod 0.6?
 =====================================================
 
 For this release, it is strongly recommended that Decapod be used with books employing a "Manhattan" style layout.
@@ -66,8 +67,7 @@ These layouts should be in rectangular columns, with content fitting and staying
 
 OCR and tracing performs best on Latin characters with each character reasonably distinguishable from one another.
 
-Books that are not this style may produce PDFs with unexpected anomalies. Future releases of OCRopus (which Decapod
-uses for page analysis and OCR operations) may support more complex layouts.
+Books that are not this style may produce PDFs with unexpected anomalies. Future releases may support more complex layouts.
 
 
 License
@@ -99,7 +99,7 @@ aggregated together using command line utilities. Third-party dependencies inclu
  * OCRopus: http://code.google.com/p/ocropus/ (Apache 2.0 License)
  ** libjpeg62-dev: http://packages.ubuntu.com/lucid/libjpeg62-dev (libjpeg62 License)
  ** libtiff-tools: http://www.libtiff.org/ (libtiff License)
- * python-fontforge: http://fontforge.sourceforge.net/ (BSD License)
+ * python-fontforge: http://fontforge.sourceforge.net/ (BSDa License)
  * python-imaging: http://www.pythonware.com/products/pil/ (MIT License)
  * python-matplotlib: http://matplotlib.sourceforge.net/ (PSF License)
  * python-nose: http://readthedocs.org/docs/nose/en/latest/ (LGPL License)
@@ -119,9 +119,9 @@ See: http://wiki.fluidproject.org/display/fluid/Decapod+Dependencies
 Known Issues
 ============
 
-Bugs and other known issues in Decapod 0.5 are documented in the Release Page:
+Bugs and other known issues in Decapod 0.6 are documented in the Release Page:
 
-http://wiki.fluidproject.org/display/fluid/Decapod+0.5+Release#Decapod0.5Release-KnownIssues
+http://wiki.fluidproject.org/display/fluid/Decapod+0.6+Release
 
 Decapod is actively being developed and improved. We welcome your feedback, bug reports, and
 feature requests. Decapod uses JIRA to track bugs and issues: http://issues.fluidproject.org/browse/DECA
