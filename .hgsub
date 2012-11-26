@@ -2,4 +2,4 @@ decapod-genpdf = https://genpdf.decapod.googlecode.com/hg/
 decapod-server = https://server.decapod.googlecode.com/hg/
 decapod-ui = https://ui.decapod.googlecode.com/hg/
 install-scripts = https://code.google.com/p/decapod.install-scripts/
-decapod-dewarping = https://code.google.com/p/decapod-dewarping/
+decapod-dewarping = https://code.google.com/p/decapod.dewarping/
