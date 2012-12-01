@@ -1,36 +1,35 @@
-Decapod 0.6
+Decapod 0.7
 ============
 
-Main Project Site:  	http://sites.google.com/site/decapodproject/
-Documentation:      	http://wiki.fluidproject.org/display/fluid/Decapod+0.6+Release
-Source Code:  		    http://wiki.fluidproject.org/display/fluid/Decapod+Source+Code
+Main Project Site: http://sites.google.com/site/decapodproject/
+Documentation: http://wiki.fluidproject.org/display/fluid/Decapod+0.7+Release
+Source Code: http://wiki.fluidproject.org/display/fluid/Decapod+Source+Code
 
-Highlights of the 0.6 Release
+Highlights of the 0.7 Release
 ==============================
 
-Decapod 0.6 adds the following features and enhancements:
+Decapod 0.7 adds the following features and enhancements:
 
-1. Support for new PDF format: font-matched PDF.
-2. Now export images to TIFF and PNG image formats.
-3. Ability to specify custom dimensions and resolution for PDF formats.
-4. Decapod now supports Ubuntu 12.04.
-5. Improved configurability of the server.
+* Ability to capture using cameras connected via USB
+* Create stereo 3D calibration data and dewarp stereo images based on that calibration data
+* Ubuntu 12.04 64-bit (32-bit no longer supported)
+* Fully internationalizable UI strings
+* In-application Help documentation
 
-Installing Decapod 0.6
+Installing Decapod 0.7
 ======================
 
-For full installation and configuration instructions, visit the Decapod User Guide:
-
-http://wiki.fluidproject.org/display/fluid/Download+and+Install+Decapod+0.6
+For full installation and configuration instructions, visit:
+http://wiki.fluidproject.org/display/fluid/Download+and+Install+Decapod+0.7
 
 
 Tested Platform
 ===============
 
-Decapod 0.6 is tested and supported in the following configurations:
+Decapod 0.7 is tested and supported in the following configurations:
  
-  * Operating System: Ubuntu 12.04
-  * Web Browser: Firefox 15
+  * Operating System: Ubuntu 12.04 64-bit
+  * Web Browser: Firefox 17
   
 Other configurations may work, but haven't been tested. The Decapod community welcomes 
 contributions, including testing various combinations of operating systems and browsers.
@@ -39,52 +38,64 @@ contributions, including testing various combinations of operating systems and b
 What's in this Release?
 =======================
 
-Interface:
- * A simple import interface for uploading images to Decapod.
- * Status messages indicating how many files are queued and how many have errors are provided.
- * Four PDF, and two image export formats to select from.
+In General:
 
-Importing images:
  * Image formats supported in this release are: JPEG, TIFF, and PNG.
- * Default maximum image file size is 100MB, but configurable to any custom file size.
 
-Exporting:
- * Export the collection of images as a greyscale PDF. Four PDF formats include:
-    1. Image PDF
-    2. A PDF with electable OCR'd text underlaid.
-    3. A PDF with contents traced by computer.
-    4. A PDF with detected Latin text converted to a True-Type font.
-    
- * Export the collection of images as an archive of PNG or TIFF files.
+Calibrate UI & Server:
 
+The calibrate interface allows users to upload a zip file with all the calibration images 
+into decapod calibrate server. The server generates the calibration data that can be exported
+as a zip file.
 
+* Uploading images:
+ ** The zip file for calibration images must contain no less than 23 stereo images.
+ ** The maximum image file size is unlimited, but configurable to any custom file size.
 
-What Kind of Material Can I Capture with Decapod 0.6?
-=====================================================
+Capture UI & Server:
 
-For this release, it is strongly recommended that Decapod be used with books employing a "Manhattan" style layout.
-These layouts should be in rectangular columns, with content fitting and staying within those column boundaries.
+The capture interface allows users to control cameras to take pictures for calibration,
+dewarping or other purposes. The pictures can be exported as a zip file.
 
-OCR and tracing performs best on Latin characters with each character reasonably distinguishable from one another.
+* Capturing images:
+ ** The list of supported cameras: http://gphoto.org/proj/libgphoto2/support.php
+ ** No more than 2 cameras can be connected to the computer.
+ ** If any connected camera is disconnected, the capture server needs to be restarted to
+    work with cameras that are still connected or re-connected.
 
-Books that are not this style may produce PDFs with unexpected anomalies. Future releases may support more complex layouts.
+Dewarp UI & Server:
 
+* Steps to use:
+ ** Upload the zip file that contains all the images to be dewarped.
+ ** Upload the calibration zip file exported from the "Calibrate UI & Server".
+ ** Launch the color picker to pick the colors of the page separator string and background.
+ ** Start dewarping.
+ ** Export the dewarped images as a zip file.
 
-License
-=======
+Export UI & Server:
 
-Decapod is licensed under the Apache 2 license. The full license can be found here:
+* Interface:
+ ** A simple import interface for uploading images to Decapod.
+ ** Status messages indicating how many files are queued and how many have errors are provided.
+ ** Four PDF, and two image export formats to select from.
 
-    http://wiki.fluidproject.org/display/fluid/Decapod+License
+* Importing images:
+ ** Image formats supported in this release are: JPEG, TIFF, and PNG.
+ ** Default maximum image file size is 100MB, but configurable to any custom file size.
 
-Decapod also depends upon some third party open source modules, which must be installed separately.
-
-
+* Exporting:
+ ** Export the collection of images as a greyscale PDF. Four PDF formats include:
+    1. Image PDF.
+    2. A PDF with selectable OCR'd text underlaid.
+    3. A PDF with contents traced by computer. 
+    4. A PDF with matched TrueType font. 
+               
+                                                      
 Third Party Software Used By Decapod
 ====================================
 
 Decapod is a Web application front-end for a collection image processing and capture tools, 
-aggregated together using command line utilities. Third-party dependencies include:
+aggregated together using command line utilities. Third-party dependencies include:                               
 
  * checkinstall: http://asic-linux.com.mx/~izto/checkinstall/ (GPL License)
  * cherrypy 3.2.2: http://www.cherrypy.org/ (BSD License)
@@ -110,6 +121,13 @@ aggregated together using command line utilities. Third-party dependencies inclu
  * python-simplejson: http://simplejson.readthedocs.org/en/latest/ (MIT License)
  * Qunit: http://qunitjs.com/ (MIT License)
  * scons: http://www.scons.org/ (MIT License)
+ * gphoto2: http://gphoto.org/ (GPL License)
+ * cmake: http://www.cmake.org/cmake/project/project.html (CMake License)
+ * git: http://git-scm.com/ (GNU General Public License)
+ * python-wxgtk2.8: http://packages.ubuntu.com/search?keywords=python-wxgtk2.8 (Ubuntu License)
+ * OpenCV: http://opencv.org/ (BSD license)
+ * pyflann: https://github.com/mariusmuja/flann (BSD license)
+ * vlfeat: http://www.vlfeat.org/ (BSD license)
 
 See: http://wiki.fluidproject.org/display/fluid/Decapod+Dependencies
 
@@ -119,10 +137,9 @@ See: http://wiki.fluidproject.org/display/fluid/Decapod+Dependencies
 Known Issues
 ============
 
-Bugs and other known issues in Decapod 0.6 are documented in the Release Page:
+Bugs and other known issues in Decapod 0.7 are documented in the Release Page:
 
-http://wiki.fluidproject.org/display/fluid/Decapod+0.6+Release
+http://wiki.fluidproject.org/display/fluid/Decapod+0.7+Release
 
 Decapod is actively being developed and improved. We welcome your feedback, bug reports, and
 feature requests. Decapod uses JIRA to track bugs and issues: http://issues.fluidproject.org/browse/DECA
-
